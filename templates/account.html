@@ -73,18 +73,6 @@
 <script src="{{ url_for('static', filename='d3.min.js') }}"></script>
 <script src="{{ url_for('static', filename='as-common.js') }}"></script>
 
-<!-- Google Analytics JS -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-3698471-25', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
 <script>
 var username = "{{ g.user.username }}";
 var followers = {{ followers | tojson }};
@@ -101,7 +89,7 @@ function populateList(lstid, msg, lst) {
   } else {
     for(var i=0;i<n;i++) {
       var f = lst[i];
-      
+
       var fd = div.append('div').classed('user-li', true);
       if(f.active === 1){ fd.classed('li-active', true);
       } else { fd.classed('li-inactive', true); }
@@ -122,7 +110,7 @@ function populateList(lstid, msg, lst) {
         }
       }(jfd, request_data));
 
-      // attach an event handler to OK, allow this user to follow me      
+      // attach an event handler to OK, allow this user to follow me
       if(lstid === 'followers' && f.active == 0) {
         var fdok = fd.append('div').classed('fdok', true).html('OK');
         var jfdok = $(fdok.node());
@@ -131,7 +119,7 @@ function populateList(lstid, msg, lst) {
           return function() {
             $.post("/addfollow", jdict).done(function(elt, elt2){ // dont think closure in closure is necessary here, being lazy
               return function(data){
-                if(data === 'OK') { 
+                if(data === 'OK') {
                   // ok we can follow this user
                   elt.classed('li-active', true);
                   elt.classed('li-inactive', false);
@@ -176,7 +164,6 @@ $(document).ready(function(){
 </head>
 
 <body>
-<a href="https://github.com/karpathy/arxiv-sanity-preserver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 
 <div id ="titdiv">
 
@@ -200,8 +187,8 @@ $(document).ready(function(){
   <a href="/">
   <div id="tittxt">
     <h1>Arxiv Sanity Preserver</h1>
-    Built in spare time by <a href="https://twitter.com/karpathy">@karpathy</a> to accelerate research.<br>
-    Serving last {{ totpapers }} papers from cs.[CV|CL|LG|AI|NE]/stat.ML
+    <a href="https://dsgvo.corbatto.de/impressum.html">Impressum</a> <a href="https://dsgvo.corbatto.de/datenschutz.html">Datenschutzerklärung nach DSGVO</a><br>
+    Serving last {{ totpapers }} papers from  cs.[AI|CC|CG|GT|CV|CR|DS|DB|DC|GR|AR|LG|LO|MS|MA|NI|OS|PF|PL|RO0]/astro-ph.[GA|CO|EP|IM|SR]
   </div>
   </a>
 </div>
@@ -233,7 +220,7 @@ $(document).ready(function(){
     </div>
   </div>
   {% endif %}
-  
+
 </div>
 
 <br><br><br><br><br><br>
