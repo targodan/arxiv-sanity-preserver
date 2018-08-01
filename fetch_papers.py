@@ -48,7 +48,7 @@ if __name__ == "__main__":
   # parse input arguments
   parser = argparse.ArgumentParser()
   parser.add_argument('--search-query', type=str,
-                      default='cat:cs.AI+OR+cat:cs.CC+OR+cat:cs.CG+OR+cat:cs.GT+OR+cat:cs.CV+OR+cat:cs.CR+OR+cat:cs.DS+OR+cat:cs.DB+OR+cat:cs.DC+OR+cat:cs.ET+OR+cat:cs.GR+OR+cat:cs.AR+OR+cat:cs.LG+OR+cat:cs.LO+OR+cat:cs.MS+OR+cat:cs.MA+OR+cat:cs.NI+OR+cat:cs.OS+OR+cat:cs.PF+OR+cat:cs.PL+OR+cat:cs.RO',
+                      default='cat:cs.AI+OR+cat:cs.CC+OR+cat:cs.CG+OR+cat:cs.GT+OR+cat:cs.CV+OR+cat:cs.CR+OR+cat:cs.DS+OR+cat:cs.DB+OR+cat:cs.DC+OR+cat:cs.ET+OR+cat:cs.GR+OR+cat:cs.AR+OR+cat:cs.LG+OR+cat:cs.LO+OR+cat:cs.MS+OR+cat:cs.MA+OR+cat:cs.NI+OR+cat:cs.OS+OR+cat:cs.PF+OR+cat:cs.PL+OR+cat:cs.RO+OR+astro-ph.GA+OR+astro-ph.CO+OR+astro-ph.EP+OR+astro-ph.IM+OR+astro-ph.SR',
                       help='query used for arxiv API. See http://arxiv.org/help/api/user-manual#detailed_examples')
   parser.add_argument('--start-index', type=int, default=0, help='0 = most recent API result')
   parser.add_argument('--max-index', type=int, default=10000, help='upper bound on paper index we will fetch')
