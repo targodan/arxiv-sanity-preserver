@@ -627,13 +627,13 @@ def login():
       creation_time])
     user_id = g.db.execute('select last_insert_rowid()').fetchall()[0][0]
     g.db.commit()
-  else:
-    # incorrect password
-    flash('User ' + request.form['username'] + ' already exists, wrong password.')
 
     session['user_id'] = user_id
     flash('New account %s created' % (request.form['username'], ))
-
+  else:
+    # incorrect password
+    flash('User ' + request.form['username'] + ' already exists, wrong password.')
+  
   return redirect(url_for('intmain'))
 
 @app.route('/logout')
